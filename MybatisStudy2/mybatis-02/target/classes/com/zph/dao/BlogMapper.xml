@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace绑定对应的Dao/Mapper接口-->
+<mapper namespace="com.zph.dao.BlogMapper">
+    <insert id="addBlog" parameterType="Blog">
+        insert into blog(id,title,author,create_time,views)
+        values(#{id},#{title},#{author},#{createTime},#{views})
+    </insert>
+
+    <select id="findBlog" parameterType="map" resultType="Blog">
+        select * from blog
+        <where>
+            <if test="title!=null">
+                title=#{title}
+            </if>
+            <if test="author!=null">
+                and author=#{author}
+            </if>
+        </where>
+    </select>
+
+    <select id="queryByChoose" parameterType="map" resultType="Blog">
+        select * from blog
+        <where>
+            <choose>
+                <when test="title!=null">
+                    title=#{title}
+                </when>
+                <when test="author!=null">
+                    author!=#{author}
+                </when>
+                <otherwise>
+                    views=#{views}
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+    <update id="updateBlog" parameterType="map">
+        update blog
+        <set>
+            <if test="title!=null">
+                title=#{title},
+            </if>
+            <if test="author!=null">
+                author=#{author},
+            </if>
+            <if test="views!=null">
+                views=#{views},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <select id="queryBlogForeach" parameterType="map" resultType="Blog">
+        select * from blog where 1=1
+        <foreach collection="ids" item="id" open="and (" close=")" separator="or">
+            id=#{id}
+        </foreach>
+    </select>
+</mapper>

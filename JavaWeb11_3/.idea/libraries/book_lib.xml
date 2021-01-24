@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="book_lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/book/web/WEB-INF/lib/druid-1.1.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/book/web/WEB-INF/lib/kaptcha-2.3.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div {
+            border: 1px solid purple;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script src="file/jquery-1.7.2.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /*  window.onload=function () {
+              document.getElementById("div001").onclick=function (event) {
+                  console.log(event);
+              }
+          }*/
+        $(function () {
+
+            $("#div001").bind("click mouseover mouseout", function (event) {
+                if (event.type == "mouseover") {
+                    console.log("鼠标移入");
+                } else if (event.type == "click") {
+                    console.log("点击");
+
+                } else {
+                    console.log("鼠标移出");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="div001">
+
+</div>
+<div id="div002">
+
+</div>
+</body>
+</html>
