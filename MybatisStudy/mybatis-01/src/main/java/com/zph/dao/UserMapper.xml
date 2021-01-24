@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace绑定对应的Dao/Mapper接口-->
+<mapper namespace="com.zph.dao.UserMapper">
+    <!--结果集映射-->
+    <!--查询语句，-->
+    <select id="getUserList" resultType="user">
+       select * from mybatis.user
+   </select>
+    <select id="getUserById2" parameterType="map" resultType="com.zph.pojo.User">
+        select * from mybatis.user where id=#{id} and name=#{name}
+    </select>
+
+    <select id="getUserById" parameterType="int" resultType="User">
+        select * from mybatis.user where id = #{id}
+    </select>
+
+    <select id="getUserByLike" parameterType="String" resultType="com.zph.pojo.User">
+        select * from mybatis.user where name like "%"#{value}"%"
+    </select>
+
+    <insert id="addUser" parameterType="com.zph.pojo.User">
+        insert into mybatis.user(id, name, pwd) values (#{id},#{name},#{pwd})
+    </insert>
+
+    <insert id="addUserByMap" parameterType="map">
+        insert into mybatis.user(id, name, pwd) values (#{userId},#{userName},#{passWord})
+    </insert>
+
+    <update id="updateUsernameById">
+        update mybatis.user set name=#{name} where id=#{id}
+    </update>
+
+    <delete id="deleteUserById">
+        delete from mybatis.user where id=#{id}
+    </delete>
+</mapper>
