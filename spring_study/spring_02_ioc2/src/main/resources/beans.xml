@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--使用无参构造函数-->
+   <!-- <bean id="user" class="com.zph.pojo.User">
+        <property name="name" value="张三"></property>
+    </bean>-->
+
+    <!--方式1.有参构造函数-->
+   <!-- <bean id="user" class="com.zph.pojo.User">
+        <constructor-arg index="0" value="lisi"></constructor-arg>
+    </bean>-->
+    <!--方式2.有参构造函数-->
+    <bean id="user" class="com.zph.pojo.User" name="user2;user3 user4,user5">
+        <constructor-arg name="name" value="lizizi"></constructor-arg>
+    </bean>
+    <alias name="user" alias="MyUser"></alias>
+
+
+
+</beans>

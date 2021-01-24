@@ -1,0 +1,10 @@
+127.0.0.1 - - [05/Jan/2021:15:06:42 +0800] "GET /maven_web HTTP/1.1" 302 - http-bio-8080-exec-1 0
+127.0.0.1 - - [05/Jan/2021:15:06:43 +0800] "GET /maven_web/ HTTP/1.1" 200 52 http-bio-8080-exec-2 712
+127.0.0.1 - - [05/Jan/2021:15:07:18 +0800] "GET /maven_web/MyServlet HTTP/1.1" 200 - http-bio-8080-exec-3 0
+127.0.0.1 - - [05/Jan/2021:15:07:37 +0800] "GET /maven_web/MyServlet HTTP/1.1" 200 98 http-bio-8080-exec-1 424
+127.0.0.1 - - [05/Jan/2021:15:07:48 +0800] "GET /maven_web/MyServlet HTTP/1.1" 200 104 http-bio-8080-exec-2 67
+127.0.0.1 - - [05/Jan/2021:15:10:58 +0800] "GET /maven_web/MyServlet HTTP/1.1" 200 104 http-bio-8080-exec-1 40
+127.0.0.1 - - [05/Jan/2021:15:21:37 +0800] "GET /maven_web/MyServlet HTTP/1.1" 200 104 http-bio-8080-exec-1 27580
+127.0.0.1 - - [05/Jan/2021:15:21:52 +0800] "GET /maven_web/MyServlet HTTP/1.1" 200 104 http-bio-8080-exec-1 47
+127.0.0.1 - - [05/Jan/2021:15:21:54 +0800] "GET /maven_web/MyServlet HTTP/1.1" 200 104 http-bio-8080-exec-2 0
+127.0.0.1 - - [05/Jan/2021:15:21:56 +0800] "GET /maven_web/ HTTP/1.1" 200 52 http-bio-8080-exec-3 0

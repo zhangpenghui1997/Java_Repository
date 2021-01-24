@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态添加删除信息</title>
+    <script src="file/jquery-1.7.2.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#addEmpBtn").click(function () {
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var salary = $("#salary").val();
+                var $item = $("<tr><td>" + name + "</td><td>" + email + "</td><td>" + salary + "</td><td><a href='#'>删除</a></td></tr>");
+
+                $item.appendTo($("#employeeTable"));
+
+                $item.find("a").click(function () {//补绑单击事件
+                    var $obj = $(this).parent().parent();
+                    var $name = $obj.find("td:first").text();
+                    if (confirm("确定要删除" + $name + "吗？")) {
+                        $obj.remove();
+                    }
+                });
+            });
+
+            $("a").click(function () {
+                var $obj = $(this).parent().parent();
+                var $name = $obj.find("td:first").text();
+                if (confirm("确定要删除" + $name + "吗？")) {
+                    $obj.remove();
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+<table id="employeeTable" style="align:center;" border="1">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>Delete</th>
+    </tr>
+    <tr>
+        <td>王五</td>
+        <td>qasf@163.com</td>
+        <td>12563</td>
+        <td><a href="#">删除</a></td>
+    </tr>
+</table>
+<div style="align:center;border:1px solid black;width:30%">
+    <h3>添加新员工</h3>
+    <table>
+        <tr>
+            <td>name:</td>
+            <td><input id="name"/></td>
+        </tr>
+        <tr>
+            <td>email:</td>
+            <td><input id="email"/></td>
+        </tr>
+        <tr>
+            <td>salary:</td>
+            <td><input id="salary"/></td>
+        </tr>
+        <tr>
+            <td>
+                <button id="addEmpBtn">提交</button>
+            </td>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>

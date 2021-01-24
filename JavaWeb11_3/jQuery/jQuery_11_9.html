@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="./file/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btn1").click(function () {
+                $(":checkbox[name='item']").prop("checked", true);
+            });
+
+            $("#btn2").click(function () {
+                $(":checkbox[name='item']").prop("checked", false);
+            });
+
+            $("#btn3").click(function () {
+                $(":checkbox[name='item']").each(function () {
+                    this.checked = !this.checked;
+                });
+
+                /*   var checkCount = $(":checkbox[name='item']").length;
+                   var allCount = $(":checkbox[name='item']:checked").length;*/
+
+
+            });
+
+            var checkCount = $(":checkbox[name='item']").length;
+            var allCount = $(":checkbox[name='item']:checked").length;
+
+            if (checkCount == allCount) {
+                $("#id001").prop("checked", true);
+            } else {
+                $("#id001").prop("checked", false);
+            }
+
+
+            $("#id001").click(function () {
+                // alert(this);
+                $(":checkbox[name='item']").prop("checked", this.checked);
+            });
+
+          /*  $("<h1>这是h1标题</h1>").appendTo("div");
+            $("<p>1234</p>").appendTo("div");
+
+            $("<span>span</span>").replaceAll("p");*/
+
+            $("#btn4").click(function () {
+                $("#select01 option:selected").appendTo($("#select02"));
+            });
+
+            $("#btn5").click(function () {
+                $("#select01 option").appendTo($("#select02"));
+            });
+
+            $("#btn6").click(function () {
+                $("#select02 option:selected").appendTo($("#select01"));
+            });
+
+            $("#btn7").click(function () {
+                $("#select02 option").remove();
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="btn1">全选</button>
+<button id="btn2">全不选</button>
+<button id="btn3">反选</button>
+<br/>
+<input type="checkbox" id="id001">全选/全不选<br/>
+<input type="checkbox" name="item" value="soccer"/>soccer
+<input type="checkbox" name="item" value="basketball"/>basketball
+<input type="checkbox" name="item" value="ping pang"/>ping pang<br/>
+
+<div></div>
+<p>paragraph2</p>
+<button id="btn4">选中添加到右边</button>
+<button id="btn5">全部添加到右边</button>
+<button id="btn6">选中添加到左边</button>
+<button id="btn7">全部删除到左边</button>
+<select multiple="multiple" name="select01" id="select01">
+    <option value="opt01">选项1</option>
+    <option value="opt02">选项2</option>
+    <option value="opt03">选项3</option>
+    <option value="opt04">选项4</option>
+    <option value="opt05">选项5</option>
+</select>
+<hr/>
+<select multiple="multiple" name="select02" id="select02">
+</select>
+</body>
+</html>

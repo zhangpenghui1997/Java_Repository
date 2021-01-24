@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop
+		https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="diyPointCut" class="com.zph.diy.DiyPointCut"></bean>
+    <bean id="serviceImpl" class="com.zph.service.ServiceImpl"/>
+
+
+    <aop:config>
+        <aop:aspect ref="diyPointCut">
+            <!--定义切入点-->
+            <aop:pointcut id="pointcut" expression="execution(* com.zph.service.ServiceImpl.*(..))"/>
+            <!--通知-->
+            <aop:before method="before" pointcut-ref="pointcut"/>
+            <aop:after method="after" pointcut-ref="pointcut"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
